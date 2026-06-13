@@ -1,5 +1,5 @@
 -- ==========================================
--- BaoRlo Speed Control Script (v3.0 - Ultimate Neon FIXED)
+-- BaoRlo đẹp trai nhất vn(v3.0 - Ultimate Neon FIXED)
 -- ==========================================
 
 local player = game.Players.LocalPlayer
@@ -30,7 +30,6 @@ ScreenGui.Name = "BaoRloNeonGui"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = guiParent
 
--- NÚT ICON MẶT NẠ
 local MaskIconButton = Instance.new("ImageButton")
 MaskIconButton.Size = UDim2.new(0, 50, 0, 50)
 MaskIconButton.Position = UDim2.new(0, 20, 0, 20) 
@@ -40,10 +39,10 @@ MaskIconButton.BorderSizePixel = 2
 MaskIconButton.BorderColor3 = Color3.fromRGB(0, 255, 255)
 MaskIconButton.Parent = ScreenGui
 
--- KHUNG MENU CHÍNH (Đã tăng chiều cao lên 350 để vừa nút nhảy)
+-- Tăng chiều cao lên 400 để chứa thêm nút Fling
 local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 250, 0, 350) 
-MainFrame.Position = UDim2.new(0.5, -125, 0.5, -175)
+MainFrame.Size = UDim2.new(0, 250, 0, 400) 
+MainFrame.Position = UDim2.new(0.5, -125, 0.5, -200)
 MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
 MainFrame.BorderSizePixel = 0
 MainFrame.Visible = false 
@@ -62,7 +61,6 @@ local UICorner = Instance.new("UICorner")
 UICorner.CornerRadius = UDim.new(0, 12)
 UICorner.Parent = MainFrame
 
--- Thanh Tiêu đề
 local TitleBar = Instance.new("Frame")
 TitleBar.Size = UDim2.new(1, 0, 0, 35)
 TitleBar.BackgroundTransparency = 1
@@ -71,7 +69,7 @@ TitleBar.Parent = MainFrame
 local TitleLabel = Instance.new("TextLabel")
 TitleLabel.Size = UDim2.new(1, 0, 1, 0)
 TitleLabel.BackgroundTransparency = 1
-TitleLabel.Text = "✨ BaoRlo Ultimate ✨"
+TitleLabel.Text = "✨ BaoRlo đẹp trai nhất vn ✨"
 TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TitleLabel.Font = Enum.Font.GothamBlack
 TitleLabel.TextSize = 18
@@ -87,10 +85,9 @@ CloseButton.Font = Enum.Font.GothamBlack
 CloseButton.TextSize = 16
 CloseButton.Parent = TitleBar
 
--- Ô nhập tốc độ
 local SpeedInput = Instance.new("TextBox")
 SpeedInput.Size = UDim2.new(0.8, 0, 0, 35)
-SpeedInput.Position = UDim2.new(0.1, 0, 0.12, 0)
+SpeedInput.Position = UDim2.new(0.1, 0, 0.1, 0)
 SpeedInput.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 SpeedInput.Text = "100"
 SpeedInput.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -100,10 +97,9 @@ SpeedInput.ClearTextOnFocus = false
 SpeedInput.Parent = MainFrame
 Instance.new("UICorner", SpeedInput).CornerRadius = UDim.new(0, 8)
 
--- Nút Tốc độ
 local ToggleSpeedBtn = Instance.new("TextButton")
-ToggleSpeedBtn.Size = UDim2.new(0.8, 0, 0, 40)
-ToggleSpeedBtn.Position = UDim2.new(0.1, 0, 0.24, 0)
+ToggleSpeedBtn.Size = UDim2.new(0.8, 0, 0, 35)
+ToggleSpeedBtn.Position = UDim2.new(0.1, 0, 0.2, 0)
 ToggleSpeedBtn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
 ToggleSpeedBtn.Text = "TỐC ĐỘ: TẮT"
 ToggleSpeedBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -112,10 +108,9 @@ ToggleSpeedBtn.TextSize = 14
 ToggleSpeedBtn.Parent = MainFrame
 Instance.new("UICorner", ToggleSpeedBtn).CornerRadius = UDim.new(0, 8)
 
--- Nút Nhảy Vô Hạn (MỚI)
 local ToggleJumpBtn = Instance.new("TextButton")
-ToggleJumpBtn.Size = UDim2.new(0.8, 0, 0, 40)
-ToggleJumpBtn.Position = UDim2.new(0.1, 0, 0.38, 0)
+ToggleJumpBtn.Size = UDim2.new(0.8, 0, 0, 35)
+ToggleJumpBtn.Position = UDim2.new(0.1, 0, 0.3, 0)
 ToggleJumpBtn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
 ToggleJumpBtn.Text = "JUMP: TẮT"
 ToggleJumpBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -124,10 +119,21 @@ ToggleJumpBtn.TextSize = 14
 ToggleJumpBtn.Parent = MainFrame
 Instance.new("UICorner", ToggleJumpBtn).CornerRadius = UDim.new(0, 8)
 
--- Các nút cũ
+-- Nút WalkFling mới
+local ToggleFlingBtn = Instance.new("TextButton")
+ToggleFlingBtn.Size = UDim2.new(0.8, 0, 0, 35)
+ToggleFlingBtn.Position = UDim2.new(0.1, 0, 0.4, 0)
+ToggleFlingBtn.BackgroundColor3 = Color3.fromRGB(255, 60, 60)
+ToggleFlingBtn.Text = "WALKFLING: TẮT"
+ToggleFlingBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleFlingBtn.Font = Enum.Font.GothamBlack
+ToggleFlingBtn.TextSize = 14
+ToggleFlingBtn.Parent = MainFrame
+Instance.new("UICorner", ToggleFlingBtn).CornerRadius = UDim.new(0, 8)
+
 local HarvestBtn = Instance.new("TextButton")
-HarvestBtn.Size = UDim2.new(0.8, 0, 0, 40)
-HarvestBtn.Position = UDim2.new(0.1, 0, 0.52, 0)
+HarvestBtn.Size = UDim2.new(0.8, 0, 0, 35)
+HarvestBtn.Position = UDim2.new(0.1, 0, 0.55, 0)
 HarvestBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 HarvestBtn.Text = "🍎 Thu Hoạch Trái"
 HarvestBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -137,8 +143,8 @@ HarvestBtn.Parent = MainFrame
 Instance.new("UICorner", HarvestBtn).CornerRadius = UDim.new(0, 8)
 
 local SellBtn = Instance.new("TextButton")
-SellBtn.Size = UDim2.new(0.8, 0, 0, 40)
-SellBtn.Position = UDim2.new(0.1, 0, 0.66, 0)
+SellBtn.Size = UDim2.new(0.8, 0, 0, 35)
+SellBtn.Position = UDim2.new(0.1, 0, 0.68, 0)
 SellBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 SellBtn.Text = "💰 Bán Tất Cả Trái"
 SellBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -148,8 +154,8 @@ SellBtn.Parent = MainFrame
 Instance.new("UICorner", SellBtn).CornerRadius = UDim.new(0, 8)
 
 local PetBtn = Instance.new("TextButton")
-PetBtn.Size = UDim2.new(0.8, 0, 0, 40)
-PetBtn.Position = UDim2.new(0.1, 0, 0.80, 0)
+PetBtn.Size = UDim2.new(0.8, 0, 0, 35)
+PetBtn.Position = UDim2.new(0.1, 0, 0.81, 0)
 PetBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 PetBtn.Text = "🐶 Mở Trứng Pet"
 PetBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -161,7 +167,6 @@ Instance.new("UICorner", PetBtn).CornerRadius = UDim.new(0, 8)
 -- ==========================================
 -- 2. LOGIC KÉO THẢ & ẨN HIỆN MENU
 -- ==========================================
--- (Giữ nguyên logic cũ của bạn)
 local dragging, dragInput, dragStart, startPos
 local function update(input)
 	local delta = input.Position - dragStart
@@ -223,7 +228,6 @@ end)
 -- ==========================================
 -- 3. LOGIC CÁC NÚT BẤM
 -- ==========================================
--- Logic Tốc độ
 local isSpeedEnabled = false
 local loopConnection = nil
 local function enforceSpeed()
@@ -257,7 +261,6 @@ ToggleSpeedBtn.MouseButton1Click:Connect(function()
 	end
 end)
 
--- Logic Infinite Jump (MỚI)
 local isInfiniteJumpEnabled = false
 UserInputService.JumpRequest:Connect(function()
 	if isInfiniteJumpEnabled and player.Character and player.Character:FindFirstChild("Humanoid") then
@@ -272,7 +275,40 @@ ToggleJumpBtn.MouseButton1Click:Connect(function()
 	ToggleJumpBtn.TextColor3 = isInfiniteJumpEnabled and Color3.fromRGB(0, 0, 0) or Color3.fromRGB(255, 255, 255)
 end)
 
--- Logic Gửi Yêu Cầu
+-- LOGIC WALKFLING MỚI
+local isFlingEnabled = false
+ToggleFlingBtn.MouseButton1Click:Connect(function()
+	isFlingEnabled = not isFlingEnabled
+	ToggleFlingBtn.Text = isFlingEnabled and "WALKFLING: BẬT" or "WALKFLING: TẮT"
+	ToggleFlingBtn.BackgroundColor3 = isFlingEnabled and Color3.fromRGB(0, 255, 100) or Color3.fromRGB(255, 60, 60)
+	ToggleFlingBtn.TextColor3 = isFlingEnabled and Color3.fromRGB(0, 0, 0) or Color3.fromRGB(255, 255, 255)
+end)
+
+RunService.Heartbeat:Connect(function()
+	if not isFlingEnabled or not player.Character then return end
+	
+	-- Tắt va chạm để bạn không bị văng, đồng thời đi xuyên người
+	for _, child in pairs(player.Character:GetChildren()) do
+		if child:IsA("BasePart") then child.CanCollide = false end
+	end
+	
+	local myHrp = player.Character:FindFirstChild("HumanoidRootPart")
+	if not myHrp then return end
+	
+	-- Khóa nhân vật của bạn tại chỗ để không bị văng
+	myHrp.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+	
+	-- Đẩy đối thủ đi rất xa khi ở gần
+	for _, oP in pairs(Players:GetPlayers()) do
+		if oP ~= player and oP.Character and oP.Character:FindFirstChild("HumanoidRootPart") then
+			local otherHrp = oP.Character.HumanoidRootPart
+			if (myHrp.Position - otherHrp.Position).Magnitude < 10 then
+				otherHrp.AssemblyLinearVelocity = Vector3.new(math.random(-1000, 1000), 1000, math.random(-1000, 1000))
+			end
+		end
+	end
+end)
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 HarvestBtn.MouseButton1Click:Connect(function()
     print("Đang thử thu hoạch...")
@@ -312,3 +348,4 @@ for _, p in ipairs(Players:GetPlayers()) do
     p.CharacterAdded:Connect(applyHighlight)
 end
 Players.PlayerAdded:Connect(function(p) p.CharacterAdded:Connect(applyHighlight) end)
+    
